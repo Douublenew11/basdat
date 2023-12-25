@@ -12,7 +12,7 @@ if (isset($_POST["simpan"])) {
             // cek
             echo '<script>
              alert("Jangan ada yang kosong !");
-             windows.location="kelompok-main/edit.php";
+             document.location="data.php";
             </script>';
             return false;
         }
@@ -56,7 +56,6 @@ if (isset($_POST["simpan"])) {
                     </div>
                     <div class="input-group mb-2">
                         <select name="jk" id="jk" style="border-radius: 5px;" value="<?= $row['jk']; ?>" required>
-                            <option value="">-Jenis Kelamin-</option>
                             <option value="Laki Laki">Laki Laki</option>
                             <option value="Perempuan">Perempuan</option>
                         </select>

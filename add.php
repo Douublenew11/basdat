@@ -3,16 +3,16 @@ include 'config.php';
 
 if (isset($_POST["submit"])) {
 
-    if (isset($_POST["simpan"])) {
-        if ($_POST["nama"] == "" | $_POST["nik"] == "" | $_POST["jk"] == "" | $_POST["kecamatan"] == "" | $_POST["kota"] == "" | $_POST["provinsi"] == "") {
-            // cek
-            echo '<script>
+
+    if ($_POST["nama"] == "" | $_POST["nik"] == "" | $_POST["jk"] == "" | $_POST["kecamatan"] == "" | $_POST["kota"] == "" | $_POST["provinsi"] == "") {
+        // cek
+        echo '<script>
              alert("Jangan ada yang kosong !");
-             windows.location="kelompok-main/edit.php";
+              document.location="add.php";
             </script>';
-            return false;
-        }
+        return false;
     }
+
 
 
     $nama = $_POST['nama'];
@@ -24,6 +24,7 @@ if (isset($_POST["submit"])) {
 
     $query = "INSERT INTO warga (nama, nik, jk, kecamatan, kota, provinsi) VALUES ('$nama', '$nik', '$jk', '$kecamatan', '$kota', '$provinsi')";
     $koneksi->query($query);
+
 
     header("Location: data.php");
     return 0;
